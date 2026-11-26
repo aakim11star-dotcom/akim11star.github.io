@@ -1,1 +1,969 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аким Старшинов — Репетитор по физике и математике (5–11 кл., ОГЭ, ЕГЭ)</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .sim-canvas { touch-action: none; }
+    input[type="range"] { accent-color: #4f46e5; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
 
+  <!-- НАВИГАЦИЯ -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-2.5 font-extrabold text-slate-900 tracking-tight">
+        <span class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-sm">
+          <i data-lucide="atom" class="w-5 h-5"></i>
+        </span>
+        <span class="text-base sm:text-lg leading-tight">Аким Старшинов</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#programs" class="hover:text-indigo-600 transition">Направления</a>
+        <a href="#showcase" class="hover:text-indigo-600 transition">Симулятор и бот</a>
+        <a href="#process" class="hover:text-indigo-600 transition">Как учимся</a>
+        <a href="#about" class="hover:text-indigo-600 transition">Обо мне</a>
+        <a href="#formats" class="hover:text-indigo-600 transition">Форматы</a>
+        <a href="#faq" class="hover:text-indigo-600 transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="#booking" class="hidden sm:inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition shadow-sm">
+          <span>Диагностика</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button id="mobileMenuBtn" type="button" aria-label="Открыть меню" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 py-3 space-y-1">
+      <a href="#programs" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Направления</a>
+      <a href="#showcase" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Симулятор и бот</a>
+      <a href="#process" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Как учимся</a>
+      <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Обо мне</a>
+      <a href="#formats" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Форматы</a>
+      <a href="#faq" class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">FAQ</a>
+      <a href="#booking" class="mobile-nav-link block mt-2 text-center bg-indigo-600 text-white text-sm font-semibold px-4 py-2.5 rounded-xl">Записаться на диагностику</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden bg-gradient-to-b from-indigo-950 via-slate-900 to-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20 lg:py-24">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold text-indigo-200 bg-white/10 border border-white/15 px-3.5 py-1.5 rounded-full">
+            <i data-lucide="graduation-cap" class="w-4 h-4 text-sky-300"></i>
+            <span>СПбГЭТУ «ЛЭТИ» · Санкт-Петербург и онлайн · 5–11 классы</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+            Физика и математика через <span class="text-sky-300">понимание</span>, а не зубрёжку формул
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+            Готовлю к ВПР, ОГЭ, ЕГЭ и помогаю уверенно подтянуть школьную программу. Объясняю законы на живых примерах из инженерной практики, авторских Python-симуляторах и собственном Telegram-боте.
+          </p>
+
+          <div class="flex flex-wrap gap-3 pt-1">
+            <a href="#booking" class="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-300 text-slate-950 font-bold px-6 py-3.5 rounded-xl transition shadow-lg shadow-sky-500/20">
+              <span>Бесплатная диагностика</span>
+              <i data-lucide="calendar-check" class="w-5 h-5"></i>
+            </a>
+            <a href="#showcase" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+              <i data-lucide="sliders-horizontal" class="w-5 h-5 text-sky-300"></i>
+              <span>Покрутить симулятор</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-white/5 border border-white/15 rounded-2xl p-6 backdrop-blur space-y-4">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+              <span class="text-xs uppercase tracking-wider font-bold text-sky-300">Экосистема обучения</span>
+              <span class="text-xs text-slate-400">ФИПИ · 2026/2027</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3.5">
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div class="text-2xl font-extrabold text-white">16</div>
+                <div class="text-xs text-slate-300 mt-1">интерактивных симуляторов по физике и геометрии</div>
+              </div>
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div class="text-2xl font-extrabold text-sky-300">58+</div>
+                <div class="text-xs text-slate-300 mt-1">карточек формул и задач в Telegram-боте</div>
+              </div>
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div class="text-2xl font-extrabold text-emerald-300">2 нед.</div>
+                <div class="text-xs text-slate-300 mt-1">регулярный срез знаний и отчёт для родителей</div>
+              </div>
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div class="text-2xl font-extrabold text-violet-300">ЛЭТИ</div>
+                <div class="text-xs text-slate-300 mt-1">магистратура ФЭА и опыт на объектах 0,4–35 кВ</div>
+              </div>
+            </div>
+            <p class="text-xs text-slate-400 pt-1">
+              Все конспекты на онлайн-доске сохраняются у ученика навсегда, а вопросы по ДЗ разбираем в чате между уроками.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- НАПРАВЛЕНИЯ -->
+  <section id="programs" class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Направления подготовки</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Подбираем программу под цель и класс</h2>
+      </div>
+      <div class="flex flex-wrap gap-2" role="tablist" aria-label="Фильтр направлений">
+        <button type="button" data-filter="all" class="prog-filter-btn px-3.5 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white transition">Все</button>
+        <button type="button" data-filter="school" class="prog-filter-btn px-3.5 py-2 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition">5–8 класс и ВПР</button>
+        <button type="button" data-filter="oge" class="prog-filter-btn px-3.5 py-2 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition">ОГЭ (9 класс)</button>
+        <button type="button" data-filter="ege" class="prog-filter-btn px-3.5 py-2 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition">ЕГЭ (10–11 кл.)</button>
+      </div>
+    </div>
+
+    <div id="programsGrid" class="grid md:grid-cols-2 gap-5">
+      <article data-cat="school" class="program-card bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-indigo-300 transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-50 text-sky-700">5–8 классы · ВПР</span>
+            <i data-lucide="compass" class="w-5 h-5 text-sky-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Закрытие пробелов и уверенные «4–5»</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Убираем страх перед контрольными, дробями, геометрией и переводом единиц в СИ. Отрабатываем чтение графиков, тепловые явления, электрические цепи и базовую оптику.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+          <span>Темп: 2–3 раза в неделю</span>
+          <a href="#booking" class="text-indigo-600 hover:text-indigo-700">Выбрать →</a>
+        </div>
+      </article>
+
+      <article data-cat="oge" class="program-card bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-indigo-300 transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700">9 класс · ОГЭ по физике</span>
+            <i data-lucide="zap" class="w-5 h-5 text-indigo-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Системная подготовка к ОГЭ по кодификатору ФИПИ</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Механика, теплота, электричество, оптика и ядерная физика. Пошагово разбираем 2-ю часть (качественные и расчётные задачи), лабораторную работу №17 и ≥10 полных пробников.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+          <span>Цель: уверенная «4» или «5» (38+ б.)</span>
+          <a href="#booking" class="text-indigo-600 hover:text-indigo-700">Выбрать →</a>
+        </div>
+      </article>
+
+      <article data-cat="oge" class="program-card bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-indigo-300 transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-violet-50 text-violet-700">9 класс · ОГЭ по математике</span>
+            <i data-lucide="sigma" class="w-5 h-5 text-violet-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Алгебра, геометрия и оформление 2-й части</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Сначала гарантированно закрываем порог (включая геометрию №15–19) и ловушки бланков №1, затем выходим на развёрнутые задачи №20–24 по критериям экспертов.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+          <span>От 10 пробников ФИПИ до экзамена</span>
+          <a href="#booking" class="text-indigo-600 hover:text-indigo-700">Выбрать →</a>
+        </div>
+      </article>
+
+      <article data-cat="ege" class="program-card bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-indigo-300 transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">10–11 классы · ЕГЭ</span>
+            <i data-lucide="cpu" class="w-5 h-5 text-emerald-600"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">ЕГЭ по физике и профильной математике</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Глубокий разбор механики, МКТ и термодинамики (циклы, изопроцессы), электродинамики (Лоренц, LC-контур, цепи) и оптики с визуализацией сложных задач 2-й части.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+          <span>Инженерный подход и строгие критерии</span>
+          <a href="#booking" class="text-indigo-600 hover:text-indigo-700">Выбрать →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ИНТЕРАКТИВНАЯ ВИТРИНА: СИМУЛЯТОР + TELEGRAM-БОТ -->
+  <section id="showcase" class="bg-white border-y border-slate-200 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Попробуй прямо сейчас</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Живой симулятор с уроков и Telegram-бот</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Покрути ползунки ниже — точно так же мы разбираем физический смысл формул на занятиях, а после урока закрепляем их в боте.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6 items-start">
+        <!-- Левая колонка: интерактивный HTML5 Canvas симулятор -->
+        <div class="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div class="inline-flex bg-white p-1 rounded-xl border border-slate-200">
+              <button id="tabKinematics" type="button" class="sim-tab px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-indigo-600 text-white transition">Кинематика (ЕГЭ)</button>
+              <button id="tabOptics" type="button" class="sim-tab px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition">Тонкая линза (ОГЭ/ЕГЭ)</button>
+            </div>
+            <span class="text-xs font-semibold text-slate-500">g = 10 м/с² (ФИПИ)</span>
+          </div>
+
+          <div class="relative bg-white rounded-xl border border-slate-200 overflow-hidden h-64 sm:h-72">
+            <canvas id="physicsCanvas" class="sim-canvas w-full h-full block"></canvas>
+          </div>
+
+          <!-- Панель управления: Кинематика -->
+          <div id="controlsKinematics" class="mt-4 space-y-3">
+            <div class="grid sm:grid-cols-3 gap-3">
+              <label class="bg-white p-3 rounded-xl border border-slate-200 block">
+                <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <span>Скорость v₀</span>
+                  <span id="valV0" class="text-indigo-600 font-bold">20 м/с</span>
+                </div>
+                <input id="inpV0" type="range" min="10" max="35" step="1" value="20" class="w-full">
+              </label>
+              <label class="bg-white p-3 rounded-xl border border-slate-200 block">
+                <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <span>Угол α</span>
+                  <span id="valAngle" class="text-indigo-600 font-bold">45°</span>
+                </div>
+                <input id="inpAngle" type="range" min="10" max="80" step="1" value="45" class="w-full">
+              </label>
+              <label class="bg-white p-3 rounded-xl border border-slate-200 block">
+                <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <span>Высота h₀</span>
+                  <span id="valH0" class="text-indigo-600 font-bold">10 м</span>
+                </div>
+                <input id="inpH0" type="range" min="0" max="30" step="1" value="10" class="w-full">
+              </label>
+            </div>
+            <div id="kinMetrics" class="grid grid-cols-3 gap-2.5 text-center"></div>
+          </div>
+
+          <!-- Панель управления: Оптика -->
+          <div id="controlsOptics" class="hidden mt-4 space-y-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <label class="bg-white p-3 rounded-xl border border-slate-200 block">
+                <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <span>Фокус F (+ собир. / − рассеив.)</span>
+                  <span id="valF" class="text-indigo-600 font-bold">+12 см</span>
+                </div>
+                <input id="inpF" type="range" min="-20" max="20" step="2" value="12" class="w-full">
+              </label>
+              <label class="bg-white p-3 rounded-xl border border-slate-200 block">
+                <div class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <span>Расстояние до предмета d</span>
+                  <span id="valD" class="text-indigo-600 font-bold">30 см</span>
+                </div>
+                <input id="inpD" type="range" min="6" max="42" step="1" value="30" class="w-full">
+              </label>
+            </div>
+            <div id="optMetrics" class="bg-white rounded-xl border border-slate-200 p-3 text-xs sm:text-sm text-slate-700 font-medium"></div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: Telegram-бот и мини-карточка -->
+        <div class="lg:col-span-5 bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between space-y-5">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-sky-300">
+                <i data-lucide="bot" class="w-4 h-4"></i>
+                Авторский Telegram-бот
+              </span>
+              <span class="text-xs bg-white/10 px-2.5 py-1 rounded-full text-slate-200">58+ карточек</span>
+            </div>
+            <h3 class="text-xl font-bold">Тренажёр формул и задач между уроками</h3>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+              Ученики повторяют формулы по механике, МКТ, электродинамике, оптике и ядерной физике в удобном формате карточек с геймификацией — без скучной зубрёжки.
+            </p>
+          </div>
+
+          <!-- Интерактивная мини-карточка из бота -->
+          <div class="bg-white/10 border border-white/15 rounded-xl p-4 space-y-3">
+            <div class="flex items-center justify-between text-xs text-slate-300">
+              <span id="quizBadge" class="font-semibold text-sky-300">Демо-карточка 1 из 3</span>
+              <button id="nextQuizBtn" type="button" class="text-xs font-semibold text-white hover:text-sky-300 underline">Следующая →</button>
+            </div>
+            <p id="quizQuestion" class="text-sm font-semibold text-white leading-snug"></p>
+            <div id="quizOptions" class="grid grid-cols-1 gap-2"></div>
+            <p id="quizFeedback" class="text-xs min-h-[1.25rem] text-slate-300"></p>
+          </div>
+
+          <div class="pt-1 flex flex-col sm:flex-row gap-2.5">
+            <a href="#booking" class="flex-1 inline-flex items-center justify-center gap-2 bg-sky-400 hover:bg-sky-300 text-slate-950 font-bold text-sm px-4 py-3 rounded-xl transition">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Получить доступ к боту</span>
+            </a>
+          </div>
+          <p class="text-[11px] text-slate-400">
+            Ссылка на бота: <span class="text-slate-200 font-mono">@your_physics_bot</span> (подставь актуальный username перед публикацией).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК ПРОХОДИТ ОБУЧЕНИЕ -->
+  <section id="process" class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="max-w-2xl mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Система работы</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Четыре шага к измеримому результату</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 font-extrabold flex items-center justify-center mb-4">01</div>
+        <h3 class="font-bold text-slate-900">Мини-диагностика</h3>
+        <p class="text-sm text-slate-600 mt-2">В спокойном диалоге без оценок и стресса проверяем ключевые темы, находим пробелы и фиксируем цель.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 font-extrabold flex items-center justify-center mb-4">02</div>
+        <h3 class="font-bold text-slate-900">Дорожная карта</h3>
+        <p class="text-sm text-slate-600 mt-2">Собираем помесячный план тем и пробников до ВПР, ОГЭ или ЕГЭ и подбираем удобные регулярные слоты.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-violet-50 text-violet-600 font-extrabold flex items-center justify-center mb-4">03</div>
+        <h3 class="font-bold text-slate-900">Уроки + симуляторы</h3>
+        <p class="text-sm text-slate-600 mt-2">Работаем на онлайн-доске, смотрим физику в анимациях, разбираем ловушки бланков и проверяем ДЗ до урока.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 font-extrabold flex items-center justify-center mb-4">04</div>
+        <h3 class="font-bold text-slate-900">Контроль каждые 2 нед.</h3>
+        <p class="text-sm text-slate-600 mt-2">Проводим короткие срезы и полные пробники ФИПИ, чтобы родитель и ученик видели реальный рост в баллах.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОБО МНЕ -->
+  <section id="about" class="bg-white border-y border-slate-200 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-5">
+        <div class="bg-gradient-to-br from-indigo-600 to-slate-900 rounded-2xl p-7 text-white shadow-lg">
+          <div class="w-16 h-16 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center text-2xl font-extrabold mb-5">АС</div>
+          <h3 class="text-2xl font-extrabold">Аким Старшинов</h3>
+          <p class="text-sky-200 text-sm font-medium mt-1">Репетитор по физике и математике · Инженер-электроэнергетик</p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-200">
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-300 shrink-0 mt-0.5"></i>
+              <span><strong>СПбГЭТУ «ЛЭТИ»</strong> — очная магистратура (ФЭА, каф. ЭТПТ, 13.04.02), бакалавриат 2022–2026</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-300 shrink-0 mt-0.5"></i>
+              <span><strong>Реальная практика:</strong> электромонтаж, пусконаладка и высоковольтные испытания (0,4–35 кВ) на объектах ПАО «НК «Роснефть»</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-300 shrink-0 mt-0.5"></i>
+              <span><strong>Инженерный стек:</strong> Python, C/C++, STM32, Micro-Cap, PSIM, AutoCAD, Компас-3D, ANSYS</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-5">
+        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Почему инженерный подход работает</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Показываю, зачем формулы нужны в реальной жизни</h2>
+        <p class="text-slate-600 leading-relaxed">
+          Школьники часто боятся физики и математики, потому что видят в учебнике только набор сухих букв. Когда на уроке мы подключаем живой график, разбираем, как закон Ома работает в реальных силовых сетях или почему при ударе часть энергии уходит в тепло — предмет становится логичным и понятным.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <h4 class="font-bold text-slate-900 text-sm">Без давления и «двоек»</h4>
+            <p class="text-xs text-slate-600 mt-1.5">На уроках можно ошибаться и рассуждать вслух — именно так формируется самостоятельное мышление.</p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <h4 class="font-bold text-slate-900 text-sm">Прозрачность для родителей</h4>
+            <p class="text-xs text-slate-600 mt-1.5">После диагностики и каждые 2 недели вы получаете понятную обратную связь: что закрыто и над чем работаем дальше.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФОРМАТЫ И РАСПИСАНИЕ -->
+  <section id="formats" class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="max-w-2xl mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Форматы и расписание</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Удобный ритм занятий под школьную нагрузку</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Базовый формат</span>
+          <h3 class="text-xl font-extrabold text-slate-900 mt-1">Индивидуальный урок</h3>
+          <div class="text-2xl font-extrabold text-indigo-600 mt-3">[указать цену] <span class="text-xs font-medium text-slate-500">/ 50 мин</span></div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• Онлайн-доска с сохранением конспектов</li>
+            <li>• Персональный план и проверка ДЗ до урока</li>
+            <li>• Доступ к Telegram-боту с формулами</li>
+          </ul>
+        </div>
+        <a href="#booking" class="mt-6 block text-center bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold py-3 rounded-xl transition">Записаться</a>
+      </div>
+
+      <div class="bg-indigo-600 text-white rounded-2xl p-6 shadow-lg flex flex-col justify-between relative">
+        <div>
+          <span class="inline-block text-xs font-bold uppercase tracking-wider bg-white/15 px-2.5 py-1 rounded-full text-sky-200">Оптимально для ОГЭ / ЕГЭ</span>
+          <h3 class="text-xl font-extrabold mt-2">Сдвоенный интенсив</h3>
+          <div class="text-2xl font-extrabold text-sky-300 mt-3">[указать цену] <span class="text-xs font-medium text-indigo-100">/ 2×50 мин</span></div>
+          <ul class="mt-4 space-y-2 text-sm text-indigo-100">
+            <li>• Два урока подряд с перерывом 10 минут</li>
+            <li>• Успеваем теорию, 1-ю и 2-ю части ФИПИ</li>
+            <li>• Идеально, если свободны только 2 дня в неделю</li>
+          </ul>
+        </div>
+        <a href="#booking" class="mt-6 block text-center bg-white hover:bg-indigo-50 text-indigo-700 text-sm font-bold py-3 rounded-xl transition">Выбрать интенсив</a>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Абонемент</span>
+          <h3 class="text-xl font-extrabold text-slate-900 mt-1">Пакет 8 или 16 уроков</h3>
+          <div class="text-2xl font-extrabold text-indigo-600 mt-3">[указать цену] <span class="text-xs font-medium text-slate-500">/ пакет</span></div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• Закрепление постоянных слотов в расписании</li>
+            <li>• Поддержка по школьным ДЗ в чате</li>
+            <li>• Полные пробники и отчёты родителям</li>
+          </ul>
+        </div>
+        <a href="#booking" class="mt-6 block text-center bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold py-3 rounded-xl transition">Обсудить пакет</a>
+      </div>
+    </div>
+
+    <div class="mt-6 bg-indigo-50/70 border border-indigo-100 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm text-slate-700">
+      <div class="flex items-start gap-3">
+        <i data-lucide="clock" class="w-5 h-5 text-indigo-600 shrink-0 mt-0.5"></i>
+        <div>
+          <strong>Основные окна расписания (МСК):</strong> среда и воскресенье (09:00–21:00), вечера вторника, четверга, пятницы (18:00–21:00) и субботы (15:30–21:00). Есть утренние слоты для 2-й смены (Вт/Пт 09:00–12:30).
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-white border-y border-slate-200 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Частые вопросы</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Ответы для родителей и учеников</h2>
+      </div>
+      <div id="faqList" class="space-y-3"></div>
+    </div>
+  </section>
+
+  <!-- ФОРМА ЗАПИСИ -->
+  <section id="booking" class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl grid lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-5 space-y-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-300">Первый шаг</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold leading-tight">Запишитесь на бесплатную диагностику</h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          За 30–45 минут познакомимся, проверим базовые темы на интерактивной доске и составим конкретный план подготовки до конца учебного года.
+        </p>
+        <div class="pt-3 space-y-2.5 text-sm text-slate-200">
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="phone" class="w-4 h-4 text-sky-300"></i>
+            <a href="tel:+79219890320" class="hover:text-sky-300 transition">+7 (921) 989-03-20</a>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="map-pin" class="w-4 h-4 text-sky-300"></i>
+            <span>Санкт-Петербург · Онлайн по всей РФ</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="send" class="w-4 h-4 text-sky-300"></i>
+            <span>Telegram: <span class="font-mono text-sky-200">@your_telegram</span></span>
+          </div>
+        </div>
+      </div>
+
+      <form id="bookingForm" class="lg:col-span-7 bg-white text-slate-900 rounded-2xl p-5 sm:p-6 space-y-4">
+        <div class="grid sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="fName" class="block text-xs font-bold text-slate-700 mb-1">Ваше имя (родитель или ученик)</label>
+            <input id="fName" type="text" required placeholder="Например, Анна" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          </div>
+          <div>
+            <label for="fContact" class="block text-xs font-bold text-slate-700 mb-1">Telegram или телефон</label>
+            <input id="fContact" type="text" required placeholder="@username или +7..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-3.5">
+          <div>
+            <label for="fSubject" class="block text-xs font-bold text-slate-700 mb-1">Предмет</label>
+            <select id="fSubject" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option>Физика</option>
+              <option>Математика</option>
+              <option>Физика + Математика</option>
+            </select>
+          </div>
+          <div>
+            <label for="fGrade" class="block text-xs font-bold text-slate-700 mb-1">Класс</label>
+            <select id="fGrade" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option>5–6 класс</option>
+              <option>7 класс</option>
+              <option selected>8 класс</option>
+              <option>9 класс (ОГЭ)</option>
+              <option>10 класс</option>
+              <option>11 класс (ЕГЭ)</option>
+            </select>
+          </div>
+          <div>
+            <label for="fGoal" class="block text-xs font-bold text-slate-700 mb-1">Главная цель</label>
+            <select id="fGoal" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option>Подтянуть оценки</option>
+              <option>Подготовка к ВПР</option>
+              <option>ОГЭ на 4–5</option>
+              <option>ЕГЭ на высокий балл</option>
+              <option>Углубление / олимпиады</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="fComment" class="block text-xs font-bold text-slate-700 mb-1">Удобные дни и комментарий (необязательно)</label>
+          <textarea id="fComment" rows="2" placeholder="Например: удобно в среду и воскресенье после 16:00" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+          <span>Сформировать заявку для Telegram</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+
+        <div id="bookingOutput" class="hidden bg-indigo-50 border border-indigo-200 rounded-xl p-4 space-y-2.5">
+          <div class="text-xs font-bold text-indigo-800">Готовый текст заявки:</div>
+          <pre id="bookingText" class="text-xs text-slate-800 whitespace-pre-wrap font-sans bg-white p-3 rounded-lg border border-indigo-100"></pre>
+          <div class="flex flex-wrap gap-2">
+            <button id="copyBookingBtn" type="button" class="px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition">Скопировать текст</button>
+            <a id="tgShareLink" href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">Открыть Telegram</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span>© 2026 Аким Старшинов · Репетитор по физике и математике</span>
+      <span>СПбГЭТУ «ЛЭТИ» · Санкт-Петербург и онлайн</span>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden bg-slate-900 text-white text-sm font-medium px-4 py-3 rounded-xl shadow-xl border border-white/10"></div>
+
+  <script>
+    lucide.createIcons();
+
+    // --- Toast helper ---
+    let toastTimer = null;
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.add('hidden'), 2800);
+    }
+
+    // --- Мобильное меню ---
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // --- Фильтр направлений ---
+    const filterBtns = document.querySelectorAll('.prog-filter-btn');
+    const progCards = document.querySelectorAll('.program-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.filter;
+        filterBtns.forEach(b => {
+          const active = b === btn;
+          b.className = active
+            ? 'prog-filter-btn px-3.5 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white transition'
+            : 'prog-filter-btn px-3.5 py-2 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition';
+        });
+        progCards.forEach(card => {
+          card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+        });
+      });
+    });
+
+    // --- Интерактивный симулятор на Canvas ---
+    const canvas = document.getElementById('physicsCanvas');
+    const ctx = canvas.getContext('2d');
+    let activeSim = 'kinematics';
+
+    const inpV0 = document.getElementById('inpV0');
+    const inpAngle = document.getElementById('inpAngle');
+    const inpH0 = document.getElementById('inpH0');
+    const inpF = document.getElementById('inpF');
+    const inpD = document.getElementById('inpD');
+
+    function resizeCanvas() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.max(300, Math.floor(rect.width * dpr));
+      canvas.height = Math.max(220, Math.floor(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      renderSim();
+    }
+
+    function drawKinematics(W, H) {
+      const v0 = Number(inpV0.value);
+      const deg = Number(inpAngle.value);
+      const h0 = Number(inpH0.value);
+      const g = 10.0;
+      const rad = (deg * Math.PI) / 180;
+      const v0x = v0 * Math.cos(rad);
+      const v0y = v0 * Math.sin(rad);
+
+      const tFlight = (v0y + Math.sqrt(v0y * v0y + 2 * g * h0)) / g;
+      const range = v0x * tFlight;
+      const hMax = h0 + (v0y * v0y) / (2 * g);
+      const vLand = Math.sqrt(v0 * v0 + 2 * g * h0);
+
+      document.getElementById('valV0').textContent = `${v0} м/с`;
+      document.getElementById('valAngle').textContent = `${deg}°`;
+      document.getElementById('valH0').textContent = `${h0} м`;
+
+      document.getElementById('kinMetrics').innerHTML = `
+        <div class="bg-white rounded-xl border border-slate-200 p-2.5">
+          <div class="text-[11px] text-slate-500">Дальность L</div>
+          <div class="text-sm font-extrabold text-indigo-600">${range.toFixed(1)} м</div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-2.5">
+          <div class="text-[11px] text-slate-500">Макс. высота H</div>
+          <div class="text-sm font-extrabold text-emerald-600">${hMax.toFixed(1)} м</div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-2.5">
+          <div class="text-[11px] text-slate-500">Время T / v_кон</div>
+          <div class="text-sm font-extrabold text-slate-800">${tFlight.toFixed(2)} с · ${vLand.toFixed(1)} м/с</div>
+        </div>`;
+
+      ctx.clearRect(0, 0, W, H);
+      const padL = 40, padR = 24, padT = 22, padB = 30;
+      const plotW = W - padL - padR;
+      const plotH = H - padT - padB;
+      const maxX = Math.max(range * 1.12, 30);
+      const maxY = Math.max(hMax * 1.2, 20);
+      const toX = x => padL + (x / maxX) * plotW;
+      const toY = y => padT + plotH - (y / maxY) * plotH;
+
+      // Сетка и оси
+      ctx.strokeStyle = '#e2e8f0';
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 4; i++) {
+        const yy = padT + (plotH * i) / 4;
+        ctx.beginPath(); ctx.moveTo(padL, yy); ctx.lineTo(W - padR, yy); ctx.stroke();
+      }
+      ctx.strokeStyle = '#334155';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(padL, toY(0)); ctx.lineTo(W - padR, toY(0)); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(padL, padT); ctx.lineTo(padL, toY(0)); ctx.stroke();
+
+      // Траектория
+      ctx.strokeStyle = '#4f46e5';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      const steps = 80;
+      for (let i = 0; i <= steps; i++) {
+        const t = (tFlight * i) / steps;
+        const x = v0x * t;
+        const y = Math.max(0, h0 + v0y * t - 0.5 * g * t * t);
+        if (i === 0) ctx.moveTo(toX(x), toY(y));
+        else ctx.lineTo(toX(x), toY(y));
+      }
+      ctx.stroke();
+
+      // Точки старта, вершины и падения
+      const xPeak = v0x * (v0y / g);
+      [[0, h0, '#0284c7', `h₀=${h0}м`], [xPeak, hMax, '#059669', `H=${hMax.toFixed(1)}м`], [range, 0, '#dc2626', `L=${range.toFixed(1)}м`]].forEach(([px, py, col, lbl]) => {
+        ctx.fillStyle = col;
+        ctx.beginPath(); ctx.arc(toX(px), toY(py), 5, 0, Math.PI * 2); ctx.fill();
+        ctx.font = '600 11px Inter, sans-serif';
+        ctx.fillText(lbl, Math.min(toX(px) + 6, W - 75), Math.max(toY(py) - 8, 16));
+      });
+    }
+
+    function drawOptics(W, H) {
+      let F = Number(inpF.value);
+      if (F === 0) F = 2;
+      const d = Number(inpD.value);
+      document.getElementById('valF').textContent = `${F > 0 ? '+' : ''}${F} см`;
+      document.getElementById('valD').textContent = `${d} см`;
+
+      const denom = 1 / F - 1 / d;
+      const hasImg = Math.abs(denom) > 1e-4;
+      const f = hasImg ? 1 / denom : null;
+      const gamma = hasImg ? Math.abs(f) / d : null;
+      const hObj = 7;
+      const hImg = hasImg ? -hObj * (f / d) : null;
+
+      let desc = 'Предмет в фокусе (d = F): лучи выходят параллельно, изображения нет (f → ∞).';
+      if (hasImg) {
+        const kind = f > 0 ? 'действительное' : 'мнимое';
+        const orient = hImg < 0 ? 'перевёрнутое' : 'прямое';
+        const size = gamma > 1.03 ? 'увеличенное' : (gamma < 0.97 ? 'уменьшенное' : 'равное');
+        desc = `${F > 0 ? 'Собирающая' : 'Рассеивающая'} линза: ${kind}, ${orient}, ${size} · f = ${f.toFixed(1)} см · Г = ${gamma.toFixed(2)}`;
+      }
+      document.getElementById('optMetrics').textContent = desc;
+
+      ctx.clearRect(0, 0, W, H);
+      const cx = W / 2;
+      const cy = H / 2;
+      const scaleX = (W * 0.44) / 45;
+      const scaleY = (H * 0.36) / 14;
+      const toX = x => cx + x * scaleX;
+      const toY = y => cy - y * scaleY;
+
+      // Главная оптическая ось
+      ctx.strokeStyle = '#94a3b8';
+      ctx.setLineDash([5, 4]);
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(12, cy); ctx.lineTo(W - 12, cy); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Линза
+      ctx.strokeStyle = '#0f172a';
+      ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(cx, 18); ctx.lineTo(cx, H - 18); ctx.stroke();
+      const arrowDir = F > 0 ? 1 : -1;
+      [18, H - 18].forEach((yEnd, idx) => {
+        const s = idx === 0 ? 1 : -1;
+        ctx.beginPath();
+        ctx.moveTo(cx - 8, yEnd + s * 10 * arrowDir);
+        ctx.lineTo(cx, yEnd);
+        ctx.lineTo(cx + 8, yEnd + s * 10 * arrowDir);
+        ctx.stroke();
+      });
+
+      // Фокусы F и 2F
+      const absF = Math.abs(F);
+      [-2 * absF, -absF, absF, 2 * absF].forEach((fx, idx) => {
+        const px = toX(fx);
+        if (px > 16 && px < W - 16) {
+          ctx.fillStyle = '#0f172a';
+          ctx.beginPath(); ctx.arc(px, cy, 3.5, 0, Math.PI * 2); ctx.fill();
+          ctx.font = '600 10px Inter, sans-serif';
+          ctx.fillText(['-2F', '-F', 'F', '2F'][idx], px - 8, cy + 16);
+        }
+      });
+
+      // Предмет
+      ctx.strokeStyle = '#7c3aed';
+      ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(toX(-d), cy); ctx.lineTo(toX(-d), toY(hObj)); ctx.stroke();
+
+      // Луч 1 (параллельно оси -> через фокус)
+      ctx.strokeStyle = '#0284c7';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(toX(-d), toY(hObj)); ctx.lineTo(cx, toY(hObj)); ctx.stroke();
+      const slope1 = -hObj / F;
+      ctx.beginPath(); ctx.moveTo(cx, toY(hObj)); ctx.lineTo(toX(45), toY(hObj + slope1 * 45)); ctx.stroke();
+      if (hasImg && f < 0) {
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath(); ctx.moveTo(cx, toY(hObj)); ctx.lineTo(toX(f), toY(hImg)); ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      // Луч 2 (через оптический центр)
+      ctx.strokeStyle = '#d97706';
+      ctx.lineWidth = 1.8;
+      const slope2 = -hObj / d;
+      ctx.beginPath(); ctx.moveTo(toX(-d), toY(hObj)); ctx.lineTo(toX(45), toY(hObj + slope2 * (45 + d))); ctx.stroke();
+
+      // Изображение
+      if (hasImg && Math.abs(f) <= 46 && Math.abs(hImg) <= 18) {
+        ctx.strokeStyle = '#059669';
+        ctx.lineWidth = 3;
+        if (f < 0) ctx.setLineDash([5, 4]);
+        ctx.beginPath(); ctx.moveTo(toX(f), cy); ctx.lineTo(toX(f), toY(hImg)); ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+
+    function renderSim() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      if (activeSim === 'kinematics') drawKinematics(rect.width, rect.height);
+      else drawOptics(rect.width, rect.height);
+    }
+
+    document.getElementById('tabKinematics').addEventListener('click', () => {
+      activeSim = 'kinematics';
+      document.getElementById('tabKinematics').className = 'sim-tab px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-indigo-600 text-white transition';
+      document.getElementById('tabOptics').className = 'sim-tab px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition';
+      document.getElementById('controlsKinematics').classList.remove('hidden');
+      document.getElementById('controlsOptics').classList.add('hidden');
+      renderSim();
+    });
+
+    document.getElementById('tabOptics').addEventListener('click', () => {
+      activeSim = 'optics';
+      document.getElementById('tabOptics').className = 'sim-tab px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-indigo-600 text-white transition';
+      document.getElementById('tabKinematics').className = 'sim-tab px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition';
+      document.getElementById('controlsOptics').classList.remove('hidden');
+      document.getElementById('controlsKinematics').classList.add('hidden');
+      renderSim();
+    });
+
+    [inpV0, inpAngle, inpH0, inpF, inpD].forEach(el => el.addEventListener('input', renderSim));
+    window.addEventListener('resize', resizeCanvas);
+
+    // --- Мини-квиз из Telegram-бота ---
+    const QUIZ_CARDS = [
+      {
+        q: 'При каком условии на внешнем резисторе R в полной цепи выделяется максимальная мощность?',
+        opts: ['R = r (КПД источника 50%)', 'R → 0 (короткое замыкание)', 'R → ∞ (холостой ход)'],
+        ok: 0,
+        exp: 'Верно! По производной dP/dR = 0 максимум P_max = ε²/(4r) достигается ровно при R = r.'
+      },
+      {
+        q: 'Как зависит период обращения заряда в однородном магнитном поле от его скорости v?',
+        opts: ['Пропорционален v', 'Не зависит от скорости v', 'Обратно пропорционален v'],
+        ok: 1,
+        exp: 'Точно! T = 2πm / (|q|B) — радиус растёт вместе со скоростью, поэтому время одного оборота неизменно.'
+      },
+      {
+        q: 'Почему на горизонтальном участке графика плавления льда температура не растёт?',
+        opts: ['Нагреватель выключили', 'Вся энергия идёт на разрушение кристаллической решётки', 'Теплоёмкость льда становится бесконечной'],
+        ok: 1,
+        exp: 'Верно! Подводимая теплота Q = λm расходуется на разрыв связей между молекулами.'
+      }
+    ];
+    let quizIdx = 0;
+
+    function renderQuiz() {
+      const card = QUIZ_CARDS[quizIdx];
+      document.getElementById('quizBadge').textContent = `Демо-карточка ${quizIdx + 1} из ${QUIZ_CARDS.length}`;
+      document.getElementById('quizQuestion').textContent = card.q;
+      document.getElementById('quizFeedback').textContent = 'Выбери вариант ответа:';
+      document.getElementById('quizFeedback').className = 'text-xs min-h-[1.25rem] text-slate-300';
+      const box = document.getElementById('quizOptions');
+      box.innerHTML = '';
+      card.opts.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'text-left text-xs sm:text-sm px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 transition';
+        btn.textContent = opt;
+        btn.addEventListener('click', () => {
+          const fb = document.getElementById('quizFeedback');
+          if (i === card.ok) {
+            btn.classList.add('bg-emerald-500/30', 'border-emerald-400');
+            fb.textContent = card.exp;
+            fb.className = 'text-xs min-h-[1.25rem] text-emerald-300 font-medium';
+          } else {
+            btn.classList.add('bg-rose-500/30', 'border-rose-400');
+            fb.textContent = 'Почти! Попробуй другой вариант.';
+            fb.className = 'text-xs min-h-[1.25rem] text-rose-300';
+          }
+        });
+        box.appendChild(btn);
+      });
+    }
+    document.getElementById('nextQuizBtn').addEventListener('click', () => {
+      quizIdx = (quizIdx + 1) % QUIZ_CARDS.length;
+      renderQuiz();
+    });
+    renderQuiz();
+
+    // --- FAQ аккордеон ---
+    const FAQ_ITEMS = [
+      ['Что нужно для онлайн-занятий?', 'Ноутбук, ПК или планшет, стабильный интернет и микрофон (с телефона неудобно работать с чертежами и графиками). Все уроки проходят на удобной онлайн-доске без установки лишних программ.'],
+      ['Подойдут ли занятия, если сейчас в школе «2» или «3»?', 'Да. Мы начинаем с мягкой диагностики, находим точные пробелы за прошлые классы (обычно дроби, перевод в СИ, базовые формулы) и выстраиваем понятную базу без стресса.'],
+      ['Обязательно ли присутствие родителя на вводном уроке?', 'Желательно на первых 5 минутах и в конце урока: так вы увидите платформу, получите честный разбор уровня знаний и вместе согласуем план и расписание.'],
+      ['Как проверять прогресс ученика?', 'Каждые 2 недели проводим короткий контрольный срез, а при подготовке к ОГЭ/ЕГЭ — регулярные полные пробники формата ФИПИ. Результаты и рекомендации отправляю родителю.'],
+      ['Можно ли совмещать физику и математику?', 'Да, это особенно эффективно в 8–11 классах: физические задачи часто «сыпятся» именно из-за алгебраических преобразований и графиков, поэтому мы закрываем обе стороны в связке.']
+    ];
+    const faqBox = document.getElementById('faqList');
+    FAQ_ITEMS.forEach(([q, a], idx) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'border border-slate-200 rounded-2xl overflow-hidden';
+      wrap.innerHTML = `
+        <button type="button" class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+          <span class="text-sm sm:text-base">${q}</span>
+          <span class="faq-icon text-indigo-600 text-xl leading-none font-bold">${idx === 0 ? '−' : '+'}</span>
+        </button>
+        <div class="faq-body px-5 pb-4 text-sm text-slate-600 leading-relaxed ${idx === 0 ? '' : 'hidden'}">${a}</div>`;
+      wrap.querySelector('.faq-toggle').addEventListener('click', () => {
+        const body = wrap.querySelector('.faq-body');
+        const icon = wrap.querySelector('.faq-icon');
+        const open = body.classList.toggle('hidden');
+        icon.textContent = open ? '+' : '−';
+      });
+      faqBox.appendChild(wrap);
+    });
+
+    // --- Форма записи ---
+    document.getElementById('bookingForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('fName').value.trim();
+      const contact = document.getElementById('fContact').value.trim();
+      const subject = document.getElementById('fSubject').value;
+      const grade = document.getElementById('fGrade').value;
+      const goal = document.getElementById('fGoal').value;
+      const comment = document.getElementById('fComment').value.trim();
+
+      const msg = [
+        'Здравствуйте, Аким! Хочу записаться на бесплатную диагностику:',
+        `• Имя: ${name}`,
+        `• Контакт: ${contact}`,
+        `• Предмет и класс: ${subject}, ${grade}`,
+        `• Цель: ${goal}`,
+        comment ? `• Комментарий: ${comment}` : null
+      ].filter(Boolean).join('\n');
+
+      document.getElementById('bookingText').textContent = msg;
+      document.getElementById('bookingOutput').classList.remove('hidden');
+      document.getElementById('tgShareLink').href = `https://t.me/your_telegram?text=${encodeURIComponent(msg)}`;
+      showToast('Заявка сформирована — можно скопировать или открыть Telegram');
+    });
+
+    document.getElementById('copyBookingBtn').addEventListener('click', () => {
+      const text = document.getElementById('bookingText').textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast('Текст заявки скопирован')).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    });
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); showToast('Текст заявки скопирован'); } catch (_) {}
+      document.body.removeChild(ta);
+    }
+
+    window.addEventListener('load', resizeCanvas);
+    resizeCanvas();
+  </script>
+</body>
+</html>
