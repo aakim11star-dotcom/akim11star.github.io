@@ -557,7 +557,7 @@
           <pre id="bookingText" class="text-xs text-slate-800 whitespace-pre-wrap font-sans bg-white p-3 rounded-lg border border-indigo-100"></pre>
           <div class="flex flex-wrap gap-2">
             <button id="copyBookingBtn" type="button" class="px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition">Скопировать текст</button>
-            <a id="tgShareLink" href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">Открыть Telegram</a>
+            <a id="tgShareLink" href="https://t.me/repetitor11star" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">Открыть Telegram</a>
           </div>
         </div>
       </form>
@@ -940,7 +940,7 @@
 
       document.getElementById('bookingText').textContent = msg;
       document.getElementById('bookingOutput').classList.remove('hidden');
-      document.getElementById('tgShareLink').href = `https://t.me/your_telegram?text=${encodeURIComponent(msg)}`;
+      document.getElementById('tgShareLink').href = `https://t.me/repetitor11star?text=${encodeURIComponent(msg)}`;
       showToast('Заявка сформирована — можно скопировать или открыть Telegram');
     });
 
